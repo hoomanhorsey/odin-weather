@@ -10,11 +10,26 @@
   </head>
   <body>
     <div id="queryResult"></div>
-    <form novalidate id="userForm">
-      <label for="city">City</label>
-      <input type="text" id="city" name="city" />
 
-      <button type="submit">Submit</button>
+    <form novalidate id="userForm">
+      <span>
+        <label for="city">Computer, what's the weather like in....</label>
+        <input type="text" id="city" name="city" placeholder="name of city" />
+      </span>
+
+      <span class="unit-selector">
+        <label>
+          <input type="radio" name="unit" value="metric" checked />
+          <span class="custom-radio">Celsius</span>
+        </label>
+        <label>
+          <input type="radio" name="unit" value="us" />
+          <span class="custom-radio">Farenheit</span>
+        </label>
+      </span>
+      <div>
+        <button type="submit">Submit</button>
+      </div>
     </form>
   </body>
 </html>
