@@ -3,13 +3,13 @@ body {
   height: 100%; /* Ensure the body and HTML take the full height */
   margin: 0; /* Remove default margins */
 
-  background-color: rgb(163, 194, 240);
-
   font-size: xx-large;
   font-family: "Courier New", Courier, monospace;
 }
 
 .container {
+  background-color: rgb(163, 194, 240);
+
   display: grid;
   height: 100vh; /* Make the grid container take up full viewport height */
   width: 100vw;
@@ -37,10 +37,6 @@ body {
 }
 
 form {
-  border: solid;
-  border-width: 10px;
-  border-radius: 5px;
-  border-color: rgb(163, 194, 240);
 }
 
 .formElement,

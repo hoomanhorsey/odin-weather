@@ -16,14 +16,34 @@ document.addEventListener("DOMContentLoaded", () => {
         throw new Error(`${weatherResult.status}`);
       }
       const weatherData = await weatherResult.json();
+
+      const temp = weatherData.currentConditions.temp;
+      const container = document.querySelector(".container");
+
+      if (temp > 35) {
+        container.style.backgroundColor = "red";
+      } else if (temp < 36 && temp > 30) {
+        container.style.backgroundColor = "orange";
+      } else if (temp < 31 && temp > 25) {
+        container.style.backgroundColor = "lightorange";
+      } else if (temp < 26 && temp > 20) {
+        container.style.backgroundColor = "yellow";
+      } else if (temp < 21 && temp > 10) {
+        container.style.backgroundColor = "lightblue";
+      } else if (temp < 11 && temp > 0) {
+        container.style.backgroundColor = "white";
+      } else {
+        container.style.backgroundColor = "darkblue";
+      }
+
       console.log(weatherData);
+
       const weatherDiv = document.getElementById("resultDisplay");
       weatherDiv.innerHTML = `<div>Current temperature in ${weatherData.resolvedAddress} is  
       ${weatherData.currentConditions.temp}. </div><div> Feels like ${weatherData.currentConditions.feelslike}</div>  <div></div> <div>Conditions are:  ${weatherData.currentConditions.icon}. </div> 
       <div> Sunrise is at ${weatherData.currentConditions.sunrise} and sunset at ${weatherData.currentConditions.sunset} </div>
       <div> UV index is ${weatherData.currentConditions.uvindex} out of 10 </div>
-      Time to perform operation = ${timeToPerform} seconds.
-      `;
+      Time to perform operation = ${timeToPerform} seconds.`;
     } catch (error) {
       console.log(error);
       if (error.message === "400") {
@@ -56,17 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
           "I'm sorry there seems to be a network error and I could not fulfil your request. Please check your connetion and try again."
         );
       }
-
-      console.log(typeof error);
-      console.log(error.message);
-      console.error(
-        "I'm slorry I don't believe there is a city with that name. Could you please try and enter again?" +
-          error.status
-      );
-      // alert(
-      //   "I'm slearry I don't believe there is a city with that name. Could you please try and enter again?: \n\n" +
-      //     error
-      // );
     }
   }
 
@@ -74,9 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   userForm.addEventListener("submit", (event) => {
     event.preventDefault();
-
     const unit = userForm.unit.value;
-
     const cityName = userForm.city.value;
 
     getWeather(cityName, unit);
