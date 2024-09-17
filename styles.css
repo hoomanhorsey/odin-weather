@@ -1,0 +1,62 @@
+html,
+body {
+  height: 100%; /* Ensure the body and HTML take the full height */
+  margin: 0; /* Remove default margins */
+
+  background-color: rgb(163, 194, 240);
+
+  font-size: xx-large;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.container {
+  display: grid;
+  height: 100vh; /* Make the grid container take up full viewport height */
+  width: 100vw;
+  grid-template-rows: 1fr 1fr 1fr;
+}
+
+.thirdTop {
+  display: grid;
+  grid-row: 0/1;
+  grid-template-columns: 1fr;
+}
+
+.thirdMiddle {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-row: 2/3;
+  grid-column: 1/2;
+}
+
+.thirdBottom {
+  display: grid;
+  grid-row: 3/4;
+  grid-column: 0/4;
+}
+
+form {
+  border: solid;
+  border-width: 10px;
+  border-radius: 5px;
+  border-color: rgb(163, 194, 240);
+}
+
+.formElement,
+.resultDisplay {
+  margin: 20px;
+  padding: 0px;
+}
+
+#city {
+  border-width: 0px;
+  border-radius: 5px;
+  margin: 10px;
+  padding: 10px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+.custom-radio {
+  font-size: medium;
+}

@@ -8,28 +8,54 @@
     <script src="./javascript.js"></script>
     <link rel="stylesheet" type="text/css" href="styles.css" />
   </head>
+
   <body>
-    <div id="queryResult"></div>
-
-    <form novalidate id="userForm">
-      <span>
-        <label for="city">Computer, what's the weather like in....</label>
-        <input type="text" id="city" name="city" placeholder="name of city" />
-      </span>
-
-      <span class="unit-selector">
-        <label>
-          <input type="radio" name="unit" value="metric" checked />
-          <span class="custom-radio">Celsius</span>
-        </label>
-        <label>
-          <input type="radio" name="unit" value="us" />
-          <span class="custom-radio">Farenheit</span>
-        </label>
-      </span>
-      <div>
-        <button type="submit">Submit</button>
+    <div class="container">
+      <div class="thirdTop">
+        <div class="resultDisplay" id="resultDisplay"></div>
       </div>
-    </form>
+
+      <div class="thirdMiddle">
+        <div></div>
+
+        <div>
+          <form novalidate id="userForm">
+            <div class="formElement">
+              <label for="city">Computer, what's the weather like in....</label>
+              <input
+                type="text"
+                id="city"
+                name="city"
+                placeholder="name of city"
+              />
+              ?
+            </div>
+
+            <div class="unit-selector, formElement">
+              <label>
+                <input
+                  class="radio"
+                  type="radio"
+                  name="unit"
+                  value="metric"
+                  checked
+                />
+                <span class="custom-radio">Celsius</span>
+              </label>
+              <label>
+                <input type="radio" name="unit" value="us" />
+                <span class="custom-radio">Farenheit</span>
+              </label>
+            </div>
+            <div class="formElement">
+              <button type="submit">Submit</button>
+            </div>
+          </form>
+        </div>
+        <div></div>
+      </div>
+
+      <div class="thirdBottom"></div>
+    </div>
   </body>
 </html>
