@@ -32,14 +32,47 @@ document.addEventListener("DOMContentLoaded", () => {
       ${weatherData.currentConditions.icon}`);
     } catch (error) {
       console.log(error);
+      if (error.message === "400") {
+        alert(
+          "I'm sorry. Internet is telling me that there isn't a city with that name. Could you please re-enter your city name and try again? \n\n" +
+            "Bad Gateway: " +
+            error.message
+        );
+      } else if (error.message === "401") {
+        alert(
+          "I'm sorry. Internet is telling me that your API key isn't valid. Could you please check your credentials \n\n" +
+            "Unauthorized: " +
+            error.message
+        );
+      } else if (error.message === "429") {
+        alert(
+          "I'm sorry. Internet is telling me that the account associated with this service has exceeded it's daily limits. Please check back tomorrow \n\n" +
+            "Forbidden: " +
+            "Too Many Requests: " +
+            error.message
+        );
+      } else if (error.message === "500") {
+        alert(
+          "I'm sorry. Internet is telling me that there is a problem with the server. Please check back again later \n\n" +
+            "Internal Server Error: " +
+            error.message
+        );
+      } else {
+        alert(
+          "I'm sorry there seems to be a network error and I could not fulfil your request. Please check your connetion and try again."
+        );
+      }
+
+      console.log(typeof error);
+      console.log(error.message);
       console.error(
         "I'm slorry I don't believe there is a city with that name. Could you please try and enter again?" +
           error.status
       );
-      alert(
-        "I'm slearry I don't believe there is a city with that name. Could you please try and enter again?: \n\n" +
-          error
-      );
+      // alert(
+      //   "I'm slearry I don't believe there is a city with that name. Could you please try and enter again?: \n\n" +
+      //     error
+      // );
     }
   }
 
